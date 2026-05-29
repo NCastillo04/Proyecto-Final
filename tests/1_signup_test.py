@@ -38,3 +38,5 @@ def test_signup():
         time.sleep(4)
 
         browser.close()
+# RUN:
+# .venv\Scripts\python -m pytest .\tests\1_signup_test.py
