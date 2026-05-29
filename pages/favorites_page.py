@@ -1,0 +1,5 @@
+class FavoritesPage:
+    def __init__(self, driver):
+        self.driver = driver
+        # variable = locator con ID 
+        
