@@ -4,27 +4,17 @@ class AllProductsPage:
     def __init__(self, page: Page):
         self.page = page
         
-        self.productos_ref = self.page.locator('a.relative.block.group')
-        self.productos_cart_button_ref = self.page.locator('[data-testid="all-products-cart-button"]')
-        self.productos_wishlist_button_ref = self.page.locator('[data-testid="all-products-wishlist-button"]')
-        self.wishlist_count_ref = self.page.locator('[data-testid="header-wishlist-count"]')
-        self.cart_count_ref = self.page.locator('[data-testid="header-cart-count"]')
-
-
-    def agregar_al_carrito(self, index=0):
-        producto = self.productos_ref.nth(index)
-        producto.hover()
-
-        self.productos_cart_button_ref.nth(index).click()
-
+        self.productos_card = self.page.locator('a.relative.block.group')
+        self.productos_wishlist_button = self.page.locator('button[data-testid="all-products-wishlist-button"]')
+        self.wishlist_count_span = self.page.locator('span[data-testid="header-wishlist-count"]')
+    
     def agregar_a_favoritos(self, index=0):
-        producto = self.productos_ref.nth(index)
+        producto = self.productos_card.nth(index)
         producto.hover()
 
-        self.productos_wishlist_button_ref.nth(index).click()
+        self.productos_wishlist_button.nth(index).click()
 
     def get_cantidad_favoritos(self):
-        return self.wishlist_count_ref.text_content()
+        return self.wishlist_count_span.text_content()
         
-    def get_cantidad_carrito(self):
-        return self.cart_count_ref.text_content()
+    
