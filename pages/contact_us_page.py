@@ -10,8 +10,8 @@ class ContactUsPage:
         self.subject_input = self.page.locator("input[data-testid='contact-us-subject-input']")
         self.your_message_textarea = self.page.locator("textarea[data-testid='contact-us-message-input']")
 
-        self.success_message_div = self.page.locator("div[data=testid='contact-us-success-message']")
-        self.error_message_p = self.page.locator("p[data=testid='contact-us-message-error']")
+        self.success_message_div = self.page.locator("div[data-testid='contact-us-success-message']")
+        self.error_message_p = self.page.locator("p[data-testid='contact-us-message-error']")
 
         self.send_message_button = self.page.locator("button[data-testid='contact-us-submit-button']")
 
@@ -25,7 +25,7 @@ class ContactUsPage:
         self.subject_input.fill(value)
 
     def set_your_message_textarea_input(self, value: str):
-        self.send_message_button.fill(value)
+        self.your_message_textarea.fill(value)
 
     def click_send_message_button(self):
         self.send_message_button.click()
