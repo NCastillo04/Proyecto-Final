@@ -6,6 +6,8 @@ class AllProductsPage:
         
         self.productos_card = self.page.locator('a.relative.block.group')
         self.productos_wishlist_button = self.page.locator('button[data-testid="all-products-wishlist-button"]')
+        self.productos_cart_button = self.page.locator('button[data-testid="all-products-cart-button"]')
+
         self.wishlist_count_span = self.page.locator('span[data-testid="header-wishlist-count"]')
 
         self.header_wishlist_icon = self.page.locator("svg[data-testid='header-wishlist-icon']")
@@ -19,6 +21,12 @@ class AllProductsPage:
         producto.hover()
 
         self.productos_wishlist_button.nth(index).click()
+
+    def agregar_a_carrito(self, index=0):
+        producto = self.productos_card.nth(index)
+        producto.hover()
+
+        self.productos_cart_button.nth(index).click()
 
     def get_cantidad_favoritos(self):
         return self.wishlist_count_span.text_content()

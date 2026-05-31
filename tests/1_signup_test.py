@@ -1,3 +1,4 @@
+import datetime
 import time
 
 from playwright.sync_api import sync_playwright
@@ -14,11 +15,13 @@ def test_signup():
 
         time.sleep(2)
 
+        timestamp = int(datetime.now().timestamp())
+
         sign_up_page = SignUpPage(page)
 
         sign_up_page.set_first_name_input("Nayeli")
         sign_up_page.set_last_name_input("Castillo")
-        sign_up_page.set_email_address_input("naye1@test.com")
+        sign_up_page.set_email_address_input(f"naye{timestamp}@test.com")
         sign_up_page.set_password_input("123456")
 
         sign_up_page.click_password_toggle_button()
