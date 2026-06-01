@@ -1,7 +1,7 @@
 # Proyecto Final
 
-Nayeli Castillo Morales
-01/06/2026
+- Nayeli Castillo Morales
+- 01/06/2026
 
 ## Instalacion
 
@@ -37,3 +37,7 @@ py -m venv .venv
 .venv\Scripts\python -m pytest .\tests\12_all_products_negative_test.py
 .venv\Scripts\python -m pytest .\tests\13_favorito_negative_test.py
 ```
+
+# Evidencias de ejecución
+
+![Vista Previa](imagenes/reporte.PNG)
