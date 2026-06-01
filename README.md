@@ -3,6 +3,10 @@
 - Nayeli Castillo Morales
 - 01/06/2026
 
+## Casos de prueba
+
+[Documento Excel de Casos de Prueba](Casos.xlsx)
+
 ## Instalacion
 
 ```py
