@@ -3,6 +3,7 @@ import time
 from playwright.sync_api import sync_playwright
 
 from pages.home_page import HomePage
+from tests.helpers.assertions import assert_with_screenshot
 
 
 def test_home():
@@ -18,7 +19,14 @@ def test_home():
 
         page.wait_for_url("https://storedemo.testdino.com/products", timeout=5000)
 
-        assert page.url == "https://storedemo.testdino.com/products"
+        # assert page.url == "https://storedemo.testdino.com/products"
+
+        assert_with_screenshot(
+            page,
+            condition= page.url == "https://storedemo.testdino.com/products",
+            message="Mensaje:",
+            name="3_home_test",
+        )
 
         time.sleep(4)
 

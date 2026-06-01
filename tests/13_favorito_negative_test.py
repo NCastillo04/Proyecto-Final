@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 
 from pages.all_products_page import AllProductsPage
 from tests.helpers.alerts import Alert
+from tests.helpers.assertions import assert_with_screenshot
 
 
 def test_favorito_negative():
@@ -25,7 +26,14 @@ def test_favorito_negative():
 
         alert = Alert(page)
 
-        assert alert.get_status() == "Removed from wishlist"
+        # assert alert.get_status() == "Removed from wishlist"
+           
+        assert_with_screenshot(
+            page,
+            condition= alert.get_status() == "Removed from wishlist",
+            message="Mensaje:",
+            name="13_favorito_negative_test",
+        )
 
         time.sleep(3)
 

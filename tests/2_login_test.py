@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 
 from pages.login_page import LoginPage
 from tests.helpers.alerts import Alert
+from tests.helpers.assertions import assert_with_screenshot
 
 def test_login():
     with sync_playwright() as playwright:
@@ -25,7 +26,12 @@ def test_login():
         alert = Alert(page)
         status = alert.get_status()
 
-        assert status == "Logged in successfully"
+        assert_with_screenshot(
+            page,
+            condition= status == "Logged in successfully",
+            message="Mensaje:",
+            name="2_login_test",
+        )
 
         time.sleep(4)
 

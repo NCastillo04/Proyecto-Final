@@ -1,10 +1,11 @@
-import datetime
+from datetime import datetime
 import time
 
 from playwright.sync_api import sync_playwright
 
 from pages.sign_up_page import SignUpPage
 from tests.helpers.alerts import Alert
+from tests.helpers.assertions import assert_with_screenshot
 
 def test_signup():
     with sync_playwright() as playwright:
@@ -36,7 +37,14 @@ def test_signup():
         alert = Alert(page)
         status = alert.get_status()
 
-        assert status == "Account created successfully! Please login to continue."
+        # assert status == "Account created successfully! Please login to continue."
+
+        assert_with_screenshot(
+            page,
+            condition= status == "Account created successfully! Please login to continue.",
+            message="Mensaje:",
+            name="1_signup_test",
+        )
 
         time.sleep(4)
 

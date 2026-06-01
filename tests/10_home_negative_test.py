@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 
 from pages.home_page import HomePage
 from tests.helpers.alerts import Alert
+from tests.helpers.assertions import assert_with_screenshot
 
 
 def test_home_negative():
@@ -21,7 +22,14 @@ def test_home_negative():
 
         alert = Alert(page)
 
-        assert alert.get_status() == "Subscribed successfully!"
+        # assert alert.get_status() == "Subscribed successfully!"
+
+        assert_with_screenshot(
+            page,
+            condition= alert.get_status() == "Subscribed successfully!",
+            message="Mensaje:",
+            name="10_home_negative_test",
+        )
         
         time.sleep(3)
 

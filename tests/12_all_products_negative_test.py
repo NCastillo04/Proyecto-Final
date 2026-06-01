@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 
 from pages.all_products_page import AllProductsPage
 from tests.helpers.alerts import Alert
+from tests.helpers.assertions import assert_with_screenshot
 
 
 def test_all_products_negative():
@@ -25,7 +26,14 @@ def test_all_products_negative():
 
         alert = Alert(page)
 
-        assert alert.get_status() == "Already added!"
+        # assert alert.get_status() == "Already added!"
+        
+        assert_with_screenshot(
+            page,
+            condition= alert.get_status() == "Already added!",
+            message="Mensaje:",
+            name="12_all_products_negative_test",
+        )
 
         time.sleep(3)
 

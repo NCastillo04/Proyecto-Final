@@ -4,6 +4,7 @@ from playwright.sync_api import sync_playwright
 
 from pages.login_page import LoginPage
 from tests.helpers.alerts import Alert
+from tests.helpers.assertions import assert_with_screenshot
 
 def test_login_negative():
     with sync_playwright() as playwright:
@@ -22,9 +23,23 @@ def test_login_negative():
         login_page.click_sign_in_button()
         time.sleep(2)
 
-        assert login_page.is_visible_login_email_error()
+        # assert login_page.is_visible_login_email_error()
 
-        assert login_page.get_login_email_error_p() == "Email is invalid"
+        # assert login_page.get_login_email_error_p() == "Email is invalid"
+
+        assert_with_screenshot(
+            page,
+            condition= login_page.is_visible_login_email_error(),
+            message="Mensaje:",
+            name="9_login_negative_test - 1",
+        )
+
+        assert_with_screenshot(
+            page,
+            condition= login_page.get_login_email_error_p() == "Email is invalid",
+            message="Mensaje:",
+            name="9_login_negative_test - 2",
+        )
         
         time.sleep(4)
 
