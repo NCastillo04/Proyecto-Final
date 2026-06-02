@@ -6,7 +6,7 @@ from pages.home_page import HomePage
 from tests.helpers.assertions import assert_with_screenshot
 
 
-def test_cart():
+def test_cart_home():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         page = browser.new_page()

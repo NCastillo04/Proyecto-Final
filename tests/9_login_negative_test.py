@@ -15,7 +15,7 @@ def test_login_negative():
 
         login_page = LoginPage(page)
 
-        login_page.set_email_address_input("nayelicastillo")
+        login_page.set_email_address_input("nayelicastillo") #email invalido
         login_page.set_password_input("123456")
 
         time.sleep(3)
@@ -23,22 +23,13 @@ def test_login_negative():
         login_page.click_sign_in_button()
         time.sleep(2)
 
-        # assert login_page.is_visible_login_email_error()
-
         # assert login_page.get_login_email_error_p() == "Email is invalid"
-
-        assert_with_screenshot(
-            page,
-            condition= login_page.is_visible_login_email_error(),
-            message="Mensaje:",
-            name="9_login_negative_test - 1",
-        )
 
         assert_with_screenshot(
             page,
             condition= login_page.get_login_email_error_p() == "Email is invalid",
             message="Mensaje:",
-            name="9_login_negative_test - 2",
+            name="9_login_negative_test",
         )
         
         time.sleep(4)

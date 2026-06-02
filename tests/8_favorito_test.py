@@ -41,7 +41,7 @@ def test_whislist():
 
         alert = Alert(page) # instancia para interactuar con la alerta flotante
 
-        mensaje_alerta = alert.get_status()
+        mensaje_alerta = alert.get_alert_message() # variable para obtener la alerta
 
         # assert mensaje_alerta == "Removed from wishlist"
 

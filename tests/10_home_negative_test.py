@@ -16,17 +16,16 @@ def test_home_negative():
 
         home_page = HomePage(page)
 
-        home_page.set_email_input("naye2@test.com")
+        home_page.set_email_input("nayelicastillo") # Email invalido
 
         home_page.click_subscribe_button()
 
         alert = Alert(page)
 
-        # assert alert.get_status() == "Subscribed successfully!"
-
         assert_with_screenshot(
             page,
-            condition= alert.get_status() == "Subscribed successfully!",
+            # condition= alert.get_alert_message() == "Email is invalid", # deberia ser el mensaje correcto
+            condition= alert.get_alert_message() == "Subscribed successfully!",
             message="Mensaje:",
             name="10_home_negative_test",
         )

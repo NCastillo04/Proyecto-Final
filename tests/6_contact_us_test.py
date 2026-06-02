@@ -34,7 +34,7 @@ def test_contact_us():
 
         time.sleep(2)
 
-        message = contact_page.get_success_message_div() # variable para obtener el mensaje 
+        message = contact_page.get_success_message_div() # variable para obtener el mensaje en pantalla
 
         # assert message == "Your message has been sent successfully!"
 

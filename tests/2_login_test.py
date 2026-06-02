@@ -24,7 +24,7 @@ def test_login():
         time.sleep(2)
 
         alert = Alert(page)
-        status = alert.get_status()
+        status = alert.get_alert_message()
 
         assert_with_screenshot(
             page,

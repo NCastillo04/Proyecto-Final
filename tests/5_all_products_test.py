@@ -29,7 +29,7 @@ def test_all_products(): # se define el test
         all_products_page.agregar_a_favoritos(5)
         time.sleep(2)
 
-        cantidad_favoritos = all_products_page.get_cantidad_favoritos()
+        cantidad_favoritos = all_products_page.get_cantidad_favoritos() #obtener la cantidad de favoritos
 
         # assert cantidad_favoritos == "4"
         

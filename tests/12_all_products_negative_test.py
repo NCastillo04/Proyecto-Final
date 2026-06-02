@@ -24,13 +24,13 @@ def test_all_products_negative():
         all_products_page.agregar_a_carrito(0)
         time.sleep(1)
 
-        alert = Alert(page)
+        alert = Alert(page) # variable para interactuar con la alerta
 
-        # assert alert.get_status() == "Already added!"
+        # assert alert.get_alert_message() == "Already added!"
         
         assert_with_screenshot(
             page,
-            condition= alert.get_status() == "Already added!",
+            condition= alert.get_alert_message() == "Already added!",
             message="Mensaje:",
             name="12_all_products_negative_test",
         )

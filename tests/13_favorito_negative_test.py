@@ -24,13 +24,13 @@ def test_favorito_negative():
         all_products_page.agregar_a_favoritos(0)
         time.sleep(1)
 
-        alert = Alert(page)
+        alert = Alert(page) # variable para interactuar con la alerta
 
-        # assert alert.get_status() == "Removed from wishlist"
+        # assert alert.get_alert_message() == "Removed from wishlist"
            
         assert_with_screenshot(
             page,
-            condition= alert.get_status() == "Removed from wishlist",
+            condition= alert.get_alert_message() == "Removed from wishlist",
             message="Mensaje:",
             name="13_favorito_negative_test",
         )

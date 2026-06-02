@@ -27,7 +27,7 @@ def test_contact_us_negative():
         contact_page.set_subject_input("Consulta")
         time.sleep(1)
 
-        contact_page.set_your_message_textarea_input("Hola.")
+        contact_page.set_your_message_textarea_input("Hola.") # mensaje con menos de 10 caracteres
         time.sleep(2)
 
         contact_page.click_send_message_button()
