@@ -34,7 +34,7 @@ def test_signup(): # definimos el test
 
         time.sleep(2)
 
-        alert = Alert(page)
+        alert = Alert(page) # variable para interactuar con la alerta
         status = alert.get_alert_message()
 
         # assert status == "Account created successfully! Please login to continue."

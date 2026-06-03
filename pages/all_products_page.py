@@ -4,7 +4,7 @@ class AllProductsPage:
     def __init__(self, page: Page):
         self.page = page
         
-        self.productos_card = self.page.locator('a.relative.block.group')
+        self.productos_card = self.page.locator('a.relative.block.group') # etiqueta a, con clases relative block group
         self.productos_wishlist_button = self.page.locator('button[data-testid="all-products-wishlist-button"]')
         self.productos_cart_button = self.page.locator('button[data-testid="all-products-cart-button"]')
 
@@ -17,10 +17,10 @@ class AllProductsPage:
         
     
     def agregar_a_favoritos(self, index=0):
-        producto = self.productos_card.nth(index)
-        producto.hover()
+        producto = self.productos_card.nth(index) # obtengo el producto por medio del indice
+        producto.hover() # se le aplica el hover
 
-        self.productos_wishlist_button.nth(index).click()
+        self.productos_wishlist_button.nth(index).click() # obtengo el boton de (favorito) corazon por el indice 
 
     def agregar_a_carrito(self, index=0):
         producto = self.productos_card.nth(index)
