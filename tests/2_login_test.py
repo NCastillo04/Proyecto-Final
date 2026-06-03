@@ -23,7 +23,7 @@ def test_login():
         login_page.click_sign_in_button()
         time.sleep(2)
 
-        alert = Alert(page)
+        alert = Alert(page) # instancia para interactuar con la alerta flotante
         status = alert.get_alert_message()
 
         assert_with_screenshot(

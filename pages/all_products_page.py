@@ -20,7 +20,8 @@ class AllProductsPage:
         producto = self.productos_card.nth(index) # obtengo el producto por medio del indice
         producto.hover() # se le aplica el hover
 
-        self.productos_wishlist_button.nth(index).click() # obtengo el boton de (favorito) corazon por el indice 
+        self.productos_wishlist_button.nth(index).click() 
+        # obtengo el boton de (favorito) corazon por el indice y se le da click
 
     def agregar_a_carrito(self, index=0):
         producto = self.productos_card.nth(index)
